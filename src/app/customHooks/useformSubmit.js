@@ -95,6 +95,9 @@ export const useFormSubmit = (url , initialData) => {
                     setError(<LoginError bgColor='bg-red-100' Icon={<ExclamationCircle style='text-red-600 text-lg' />}><span className='text-red-600 text-[15px] font-semibold font-nunito-sans'>{msg}</span></LoginError>);  
             }
         })
+        .catch(error => {
+            setError(<LoginError bgColor='bg-red-100' Icon={<ExclamationCircle style='text-red-600 text-lg' />}><span className='text-red-600 text-[15px] font-semibold font-nunito-sans'>Oops! Something went wrong</span></LoginError>);
+        })
         .finally(()=>{
             setLoading(false);
         });
