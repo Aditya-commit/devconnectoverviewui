@@ -1,18 +1,14 @@
 import { NextResponse } from 'next/server'
-import { cookies } from 'next/headers'
 
 // This function can be marked async if using await inside
 export async function middleware(request) {
 
-  const cookieStore = await cookies();
-
-  const cookieString = cookieStore.toString();
+  const sessionId = request.cookies.get('sessionid')?.value;
 
   const apiResponse = await fetch(`${process.env.REMOTE_URL}/auth/authenticate`, {
     method: 'get',
-    credentials: 'include',
     headers: {
-      Cookie: cookieString
+      Cookie: `sessionid=${sessionId}`
     }
   })
 
