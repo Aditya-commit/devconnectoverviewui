@@ -1,6 +1,42 @@
 @import "tailwindcss";
 
 
+
+
+@media only screen and (max-width : 599px){
+
+	.editor_scroll::-webkit-scrollbar{
+		border-radius: 300px;
+		height : 100%;
+		width: 7px;
+		background : transparent;
+	}
+	.editor_scroll::-webkit-scrollbar-thumb{
+		border-radius: 300px;
+		background: rgb(238, 238, 238);
+	}
+	.editor_scroll-mozilla{
+		scrollbar-width : thin;
+	}
+}
+
+.editor_scroll::-webkit-scrollbar{
+	border-radius: 300px;
+	height : 100%;
+	width: 7px;
+	background : transparent
+}
+.editor_scroll::-webkit-scrollbar-thumb{
+	border-radius: 300px;
+	background: #051f31
+}
+.editor_scroll-mozilla{
+	scrollbar-width : thin;
+}
+
+body{
+    background : #f7f7f7;
+}
 button{
     cursor: pointer;
     outline : none
