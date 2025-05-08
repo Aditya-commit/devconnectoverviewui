@@ -1,7 +1,7 @@
 'use client';
 
 import { useState , useEffect , createContext } from "react";
-
+import { usePathname } from "next/navigation";
 
 import { nunito_sans } from "../fonts/nunito_sans";
 
@@ -25,7 +25,8 @@ const AppWrapper = ({children}) => {
 
 
     const { loading , error , data } = useGetData(`auth/myinfo`);
-    
+
+    const pathname = usePathname();
 
     if(loading){
 
@@ -47,6 +48,15 @@ const AppWrapper = ({children}) => {
                 </div>
             </div>
         )
+    }
+    else{
+
+        if(error?.status === 401){
+            if(pathname !== '/auth/signin' && pathname !== '/auth/signup'){
+                window.location.replace('/auth/signin');
+                return;
+            }
+        }
     }
 
     if(data.id){
