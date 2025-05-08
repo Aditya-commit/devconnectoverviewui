@@ -70,7 +70,7 @@ export const useGetData = (url) => {
             })
         .catch(error => {
                 
-            setError({status : statusCode , error : error})
+            setError({status : 500 , error : error})
         
         })
         .finally(() => setLoading(false));
